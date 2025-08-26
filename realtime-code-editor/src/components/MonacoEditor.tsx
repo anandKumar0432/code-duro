@@ -26,12 +26,12 @@ function MonacoEditor() {
         </div>
     }
     return (
-    <div className="">
+    <div className="" style={{ backgroundColor: '#272640' }}>
         <Editor
         height="90vh"
         width="90vh"
         defaultLanguage="javascript"
-        defaultValue="// write your code here"
+        theme="vs-dark"
         onChange={(value)=>{
             const newCode = value || "";
             setCode(newCode);

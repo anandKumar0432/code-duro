@@ -2,14 +2,16 @@ import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom'
 import './App.css'
 import CodeRoom from './components/CodeRoom'
 import Landing from './components/Landing'
+import Landing2 from './components/Landing2'
 
 function App() {
 
   return (
-    <div className='bg-neutral-950 h-screen max-w-screen flex justify-center items-center text-white'>
+  <div className=' text-white' style={{backgroundColor: '#30353e'}}>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Landing/>}/>
+          <Route path='/' element={<Landing2/>} />
+          {/* <Route path='/' element={<Landing/>}/> */}
           <Route path='/coderoom/:roomId' element={<CodeRoomWithParam />} />
         </Routes>
       </BrowserRouter>
@@ -17,7 +19,6 @@ function App() {
   )
 }
 
-// Wrapper to extract roomId from URL and pass to CodeRoom
 function CodeRoomWithParam() {
   const { roomId } = useParams<{ roomId: string }>();
   if (!roomId) return null;

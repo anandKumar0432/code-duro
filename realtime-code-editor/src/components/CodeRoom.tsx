@@ -5,9 +5,8 @@ import * as Y from 'yjs';
 import { WebsocketProvider } from 'y-websocket';
 import { MonacoBinding } from 'y-monaco';
 import { editor } from "monaco-editor";
-import React, { useState } from "react";
+import { useState } from "react";
 
-// Connect to the backend WebSocket server (index2.ts runs on port 3001)
 const serverWsUrl = "ws://localhost:3001";
 
 interface CodeRoomProps {
@@ -20,14 +19,11 @@ export default function CodeRoom({ roomId }: CodeRoomProps) {
     function handleEditorDidMount(editor: editor.IStandaloneCodeEditor) {
         editorRef.current = editor;
 
-        // Initialize yjs
         const doc = new Y.Doc();
 
-        // Connect to peers with WebSocket (roomId is passed as prop)
         const provider = new WebsocketProvider(serverWsUrl, roomId, doc);
         const type = doc.getText("monaco");
 
-        // Bind yjs doc to Monaco editor
         new MonacoBinding(type, editorRef.current!.getModel()!, new Set([editorRef.current!]));
     }
 
@@ -49,8 +45,9 @@ export default function CodeRoom({ roomId }: CodeRoomProps) {
             </div>
             <Editor
                 height="100vh"
-                language={"cpp"}
+                language={"javascript"}
                 defaultValue={"// your code here"}
+                theme="vs-dark"
                 onMount={handleEditorDidMount}
             />
         </>
