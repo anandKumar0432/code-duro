@@ -6,6 +6,7 @@ import { WebsocketProvider } from 'y-websocket';
 import { MonacoBinding } from 'y-monaco';
 import { editor } from "monaco-editor";
 import { useState } from "react";
+import Navbar from "./Navbar";
 
 const serverWsUrl = "ws://localhost:3001";
 
@@ -27,9 +28,14 @@ export default function CodeRoom({ roomId }: CodeRoomProps) {
         new MonacoBinding(type, editorRef.current!.getModel()!, new Set([editorRef.current!]));
     }
 
+
     return (
-        <>
-            <div className="flex items-center p-2 bg-gray-100 text-black ml-5">
+        <div className="h-screen w-screen">
+            <div>
+                <Navbar roomId={roomId}/>
+            </div>
+            <div className="">    
+            {/* <div className="flex items-center p-2 bg-gray-100 text-black ml-5">
                 <span className="font-bold mr-4">Room: {roomId}</span>
                 <button
                     className="px-3 py-1 rounded bg-blue-500  hover:bg-blue-600 transition text-black"
@@ -42,7 +48,7 @@ export default function CodeRoom({ roomId }: CodeRoomProps) {
                         Share this room ID with others to collaborate in real-time!
                     </div>
                 )}
-            </div>
+            </div> */}
             <Editor
                 height="100vh"
                 language={"javascript"}
@@ -50,6 +56,7 @@ export default function CodeRoom({ roomId }: CodeRoomProps) {
                 theme="vs-dark"
                 onMount={handleEditorDidMount}
             />
-        </>
+        </div>
+        </div>
     );
 }

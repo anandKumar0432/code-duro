@@ -1,6 +1,8 @@
 
+import { useNavigate } from "react-router-dom"
 
 function Hero() {
+    const navigate = useNavigate();
   return (
     <div className="font-mono h-screen w-screen text-white" style={{backgroundColor: '#30353e'}}>
         <div className='text-3xl font-bold text-center mt-20'>
@@ -9,8 +11,11 @@ function Hero() {
         <div className='text-center mt-10 text-md px-20 font-light'>
             Collaborate with developers around the world in real-time. Share code, debug together, and build amazing projects seamlessly.
         </div>
-        <div>
-            <button className="mt-10 px-6 py-3 bg-emerald-500 rounded text-black font-semibold hover:cursor-pointer">
+        <div className="flex justify-center">
+            <button onClick={()=>{
+                const roomId = Math.random().toString(36).substring(2, 10);
+                navigate(`/coderoom/${roomId}`);
+            }}className="mt-10 px-6 py-3 bg-[#536878] rounded text-white font-semibold hover:cursor-pointer hover:bg-[#91A3B0]">
                 Get Started
             </button>
         </div>

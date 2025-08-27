@@ -1,0 +1,4 @@
+./realtime-code-editor/node_modules
+./realtime-code-editor/dist
+./realtime-code-editor/src/**/*.test.tsx
+./realtime-code-editor/src/components/MonacoEditor.tsx

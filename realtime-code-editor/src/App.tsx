@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom'
 import './App.css'
 import CodeRoom from './components/CodeRoom'
 import Landing from './components/Landing'
-import Landing2 from './components/Landing2'
 
 function App() {
 
@@ -10,8 +9,7 @@ function App() {
   <div className=' text-white' style={{backgroundColor: '#30353e'}}>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Landing2/>} />
-          {/* <Route path='/' element={<Landing/>}/> */}
+          <Route path='/' element={<Landing/>} />
           <Route path='/coderoom/:roomId' element={<CodeRoomWithParam />} />
         </Routes>
       </BrowserRouter>
