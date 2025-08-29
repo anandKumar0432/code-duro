@@ -2,7 +2,7 @@
 
 function Appbar() {
   return (
-    <div className="bg-[#30353e] h-24 grid grid-cols-2 justify-center items-center text-lg text-light font-mono">
+    <div className="bg-[#30353e] h-16 grid grid-cols-2 justify-center items-center text-lg text-light font-mono">
         <div className="pl-6 hover:cursor-pointer">
             <img width="100" height="50" src="/src/assets/logo-code-duro-2.png" alt="code duro" />
         </div>   

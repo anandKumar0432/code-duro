@@ -30,7 +30,7 @@ export default function CodeRoom({ roomId }: CodeRoomProps) {
 
 
     return (
-        <div className="h-screen w-screen">
+        <div className="min-h-screen w-screen">
             <div>
                 <Navbar roomId={roomId}/>
             </div>
